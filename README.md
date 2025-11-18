@@ -18,13 +18,13 @@
 Хост под управлением ОС Debian 13.
 На сайте zabbix сконфигурировал следующим образом
 
-   ![1](https://github.com/SerhioSamodurov/hw/blob/master/img/1.png)
+![1](https://github.com/SerhioSamodurov/hw/blob/master/img/1.png)
 
 1.1 Установка PostgreSQL
   - sudo apt install postgresql
   - sudo systemctl status postgres
 
-   ![2](https://github.com/SerhioSamodurov/hw/blob/master/img/2.png)
+![2](https://github.com/SerhioSamodurov/hw/blob/master/img/2.png)
 
 1.2 Установка репозитория
    - wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
@@ -32,12 +32,12 @@
    - cat /etc/apt/sources.list.d/zabbix.list
    - sudo apt update 
 
-    ![3](https://github.com/SerhioSamodurov/hw/blob/master/img/3.png)
+![3](https://github.com/SerhioSamodurov/hw/blob/master/img/3.png)
 
 1.3 Установка Zabbix (без агента) 
   - sudo apt install zabbix-server-pgsql zabbix-frontend-php php8.4-pgsql zabbix-apache-conf zabbix-sql-scripts
 
-   ![4](https://github.com/SerhioSamodurov/hw/blob/master/img/4.png)
+![4](https://github.com/SerhioSamodurov/hw/blob/master/img/4.png)
   
   Установлен, но пока не запускался
 
@@ -47,19 +47,21 @@
    - sudo -u postgres createdb -O zabbix zabbix
    - zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
 
-    ![5](https://github.com/SerhioSamodurov/hw/blob/main/master/5.png)  
+![5](https://github.com/SerhioSamodurov/hw/blob/master/img/5.png)  
 
    Наша БД появилась 
 
 1.5 Добавление пароля в конфиг
   - nano  /etc/zabbix/zabbix_server.conf 
-   ![6](https://github.com/SerhioSamodurov/hw/blob/master/img/6.png)
+
+![6](https://github.com/SerhioSamodurov/hw/blob/master/img/6.png)
 
 1.6 Запуск и добавление в автозагрузку
    - sudo systemctl restart zabbix-server apache2
-   - sudo systemctl enable zabbix-server apache2   
-   ![7](https://github.com/SerhioSamodurov/hw/blob/master/img/7.png)
-   ![8](https://github.com/SerhioSamodurov/hw/blob/master/img/8.png)
+   - sudo systemctl enable zabbix-server apache2  
+ 
+![7](https://github.com/SerhioSamodurov/hw/blob/master/img/7.png)
+![8](https://github.com/SerhioSamodurov/hw/blob/master/img/8.png)
 
 1.7 Web
  - Конфигуратор подключения к БД по IP адресу ВМ доступен
