@@ -1,107 +1,107 @@
-# Самодуров Сергей Михайлович Zabbix Ч.1
+# РЎР°РјРѕРґСѓСЂРѕРІ РЎРµСЂРіРµР№ РњРёС…Р°Р№Р»РѕРІРёС‡ Zabbix Р§.1
 
-## Задание 1
+## Р—Р°РґР°РЅРёРµ 1
 
-Установите Zabbix Server с веб-интерфейсом.
+РЈСЃС‚Р°РЅРѕРІРёС‚Рµ Zabbix Server СЃ РІРµР±-РёРЅС‚РµСЂС„РµР№СЃРѕРј.
 
-Процесс выполнения
-   1. Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.
-   2. Установите PostgreSQL. Для установки достаточна та версия, что есть в системном репозитороии Debian 11.
-   3. Пользуясь конфигуратором команд с официального сайта, составьте набор команд для установки последней версии Zabbix с поддержкой PostgreSQL и Apache.
-   4. Выполните все необходимые команды для установки Zabbix Server и Zabbix Web Server.
-Требования к результатам
-   1. Прикрепите в файл README.md скриншот авторизации в админке.
-   2. Приложите в файл README.md текст использованных команд в GitHub.
+РџСЂРѕС†РµСЃСЃ РІС‹РїРѕР»РЅРµРЅРёСЏ
+   1. Р’С‹РїРѕР»РЅСЏСЏ Р”Р—, СЃРІРµСЂСЏР№С‚РµСЃСЊ СЃ РїСЂРѕС†РµСЃСЃРѕРј РѕС‚СЂР°Р¶С‘РЅРЅС‹Рј РІ Р·Р°РїРёСЃРё Р»РµРєС†РёРё.
+   2. РЈСЃС‚Р°РЅРѕРІРёС‚Рµ PostgreSQL. Р”Р»СЏ СѓСЃС‚Р°РЅРѕРІРєРё РґРѕСЃС‚Р°С‚РѕС‡РЅР° С‚Р° РІРµСЂСЃРёСЏ, С‡С‚Рѕ РµСЃС‚СЊ РІ СЃРёСЃС‚РµРјРЅРѕРј СЂРµРїРѕР·РёС‚РѕСЂРѕРёРё Debian 11.
+   3. РџРѕР»СЊР·СѓСЏСЃСЊ РєРѕРЅС„РёРіСѓСЂР°С‚РѕСЂРѕРј РєРѕРјР°РЅРґ СЃ РѕС„РёС†РёР°Р»СЊРЅРѕРіРѕ СЃР°Р№С‚Р°, СЃРѕСЃС‚Р°РІСЊС‚Рµ РЅР°Р±РѕСЂ РєРѕРјР°РЅРґ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё РїРѕСЃР»РµРґРЅРµР№ РІРµСЂСЃРёРё Zabbix СЃ РїРѕРґРґРµСЂР¶РєРѕР№ PostgreSQL Рё Apache.
+   4. Р’С‹РїРѕР»РЅРёС‚Рµ РІСЃРµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РєРѕРјР°РЅРґС‹ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё Zabbix Server Рё Zabbix Web Server.
+РўСЂРµР±РѕРІР°РЅРёСЏ Рє СЂРµР·СѓР»СЊС‚Р°С‚Р°Рј
+   1. РџСЂРёРєСЂРµРїРёС‚Рµ РІ С„Р°Р№Р» README.md СЃРєСЂРёРЅС€РѕС‚ Р°РІС‚РѕСЂРёР·Р°С†РёРё РІ Р°РґРјРёРЅРєРµ.
+   2. РџСЂРёР»РѕР¶РёС‚Рµ РІ С„Р°Р№Р» README.md С‚РµРєСЃС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅС‹С… РєРѕРјР°РЅРґ РІ GitHub.
 
-### Решение 1
+### Р РµС€РµРЅРёРµ 1
 
-Хост под управлением ОС Debian 13.
-На сайте zabbix сконфигурировал следующим образом
+РҐРѕСЃС‚ РїРѕРґ СѓРїСЂР°РІР»РµРЅРёРµРј РћРЎ Debian 13.
+РќР° СЃР°Р№С‚Рµ zabbix СЃРєРѕРЅС„РёРіСѓСЂРёСЂРѕРІР°Р» СЃР»РµРґСѓСЋС‰РёРј РѕР±СЂР°Р·РѕРј
 
-   ![1](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/1.png)
+   ![1](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/1.png)
 
-1.1 Установка PostgreSQL
+1.1 РЈСЃС‚Р°РЅРѕРІРєР° PostgreSQL
   - sudo apt install postgresql
   - sudo systemctl status postgres
 
-   ![2](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/2.png)
+   ![2](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/2.png)
 
-1.2 Установка репозитория
+1.2 РЈСЃС‚Р°РЅРѕРІРєР° СЂРµРїРѕР·РёС‚РѕСЂРёСЏ
    - wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
    - sudo dpkg -i zabbix-release_latest_7.0+debian13_all.deb
    - cat /etc/apt/sources.list.d/zabbix.list
    - sudo apt update 
 
-    ![3](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/3.png)
+    ![3](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/3.png)
 
-1.3 Установка Zabbix (без агента) 
+1.3 РЈСЃС‚Р°РЅРѕРІРєР° Zabbix (Р±РµР· Р°РіРµРЅС‚Р°) 
   - sudo apt install zabbix-server-pgsql zabbix-frontend-php php8.4-pgsql zabbix-apache-conf zabbix-sql-scripts
 
-   ![4](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/4.png)
+   ![4](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/4.png)
   
-  Установлен, но пока не запускался
+  РЈСЃС‚Р°РЅРѕРІР»РµРЅ, РЅРѕ РїРѕРєР° РЅРµ Р·Р°РїСѓСЃРєР°Р»СЃСЏ
 
-1.4 Создание пользователя zabbix и БД
-  Взял команды из конфигуратора
+1.4 РЎРѕР·РґР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ zabbix Рё Р‘Р”
+  Р’Р·СЏР» РєРѕРјР°РЅРґС‹ РёР· РєРѕРЅС„РёРіСѓСЂР°С‚РѕСЂР°
    - sudo -u postgres createuser --pwprompt zabbix
    - sudo -u postgres createdb -O zabbix zabbix
    - zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
 
-    ![5](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/5.png)  
+    ![5](https://github.com/SerhioSamodurov/git_project_hw/blob/main/master/5.png)  
 
-   Наша БД появилась 
+   РќР°С€Р° Р‘Р” РїРѕСЏРІРёР»Р°СЃСЊ 
 
-1.5 Добавление пароля в конфиг
+1.5 Р”РѕР±Р°РІР»РµРЅРёРµ РїР°СЂРѕР»СЏ РІ РєРѕРЅС„РёРі
   - nano  /etc/zabbix/zabbix_server.conf 
-   ![6](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/6.png)
+   ![6](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/6.png)
 
-1.6 Запуск и добавление в автозагрузку
+1.6 Р—Р°РїСѓСЃРє Рё РґРѕР±Р°РІР»РµРЅРёРµ РІ Р°РІС‚РѕР·Р°РіСЂСѓР·РєСѓ
    - sudo systemctl restart zabbix-server apache2
    - sudo systemctl enable zabbix-server apache2   
-   ![7](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/7.png)
-   ![8](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/8.png)
+   ![7](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/7.png)
+   ![8](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/8.png)
 
 1.7 Web
- - Конфигуратор подключения к БД по IP адресу ВМ доступен
+ - РљРѕРЅС„РёРіСѓСЂР°С‚РѕСЂ РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє Р‘Р” РїРѕ IP Р°РґСЂРµСЃСѓ Р’Рњ РґРѕСЃС‚СѓРїРµРЅ
   
-  ![9](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/9.png)
+  ![9](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/9.png)
 
- - Все опции доступны
+ - Р’СЃРµ РѕРїС†РёРё РґРѕСЃС‚СѓРїРЅС‹
 
-  ![10](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/10.png)
+  ![10](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/10.png)
 
- - в процессе сменил тему
-  ![11](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/11.png)
+ - РІ РїСЂРѕС†РµСЃСЃРµ СЃРјРµРЅРёР» С‚РµРјСѓ
+  ![11](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/11.png)
 
- - Окно с авторизацией появилось
+ - РћРєРЅРѕ СЃ Р°РІС‚РѕСЂРёР·Р°С†РёРµР№ РїРѕСЏРІРёР»РѕСЃСЊ
 
-  ![12](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/12.png)
+  ![12](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/12.png)
 
- - После авторизации вижу стандартный шаблон zabbix
+ - РџРѕСЃР»Рµ Р°РІС‚РѕСЂРёР·Р°С†РёРё РІРёР¶Сѓ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ С€Р°Р±Р»РѕРЅ zabbix
 
-  ![13](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/13.png)
+  ![13](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/13.png)
 
-## Задание 2
+## Р—Р°РґР°РЅРёРµ 2
 
-Установите Zabbix Agent на два хоста.
+РЈСЃС‚Р°РЅРѕРІРёС‚Рµ Zabbix Agent РЅР° РґРІР° С…РѕСЃС‚Р°.
 
-Процесс выполнения
-   1. Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.
-   2. Установите Zabbix Agent на 2 вирт.машины, одной из них может быть ваш Zabbix Server.
-   3. Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов.
-   4. Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera.
-   5. Проверьте, что в разделе Latest Data начали появляться данные с добавленных агентов.
+РџСЂРѕС†РµСЃСЃ РІС‹РїРѕР»РЅРµРЅРёСЏ
+   1. Р’С‹РїРѕР»РЅСЏСЏ Р”Р—, СЃРІРµСЂСЏР№С‚РµСЃСЊ СЃ РїСЂРѕС†РµСЃСЃРѕРј РѕС‚СЂР°Р¶С‘РЅРЅС‹Рј РІ Р·Р°РїРёСЃРё Р»РµРєС†РёРё.
+   2. РЈСЃС‚Р°РЅРѕРІРёС‚Рµ Zabbix Agent РЅР° 2 РІРёСЂС‚.РјР°С€РёРЅС‹, РѕРґРЅРѕР№ РёР· РЅРёС… РјРѕР¶РµС‚ Р±С‹С‚СЊ РІР°С€ Zabbix Server.
+   3. Р”РѕР±Р°РІСЊС‚Рµ Zabbix Server РІ СЃРїРёСЃРѕРє СЂР°Р·СЂРµС€РµРЅРЅС‹С… СЃРµСЂРІРµСЂРѕРІ РІР°С€РёС… Zabbix AgentРѕРІ.
+   4. Р”РѕР±Р°РІСЊС‚Рµ Zabbix AgentРѕРІ РІ СЂР°Р·РґРµР» Configuration > Hosts РІР°С€РµРіРѕ Zabbix Servera.
+   5. РџСЂРѕРІРµСЂСЊС‚Рµ, С‡С‚Рѕ РІ СЂР°Р·РґРµР»Рµ Latest Data РЅР°С‡Р°Р»Рё РїРѕСЏРІР»СЏС‚СЊСЃСЏ РґР°РЅРЅС‹Рµ СЃ РґРѕР±Р°РІР»РµРЅРЅС‹С… Р°РіРµРЅС‚РѕРІ.
 
-Требования к результатам
-   1. Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу
-   2. Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
-   3. Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
-   4. Приложите в файл README.md текст использованных команд в GitHub
+РўСЂРµР±РѕРІР°РЅРёСЏ Рє СЂРµР·СѓР»СЊС‚Р°С‚Р°Рј
+   1. РџСЂРёР»РѕР¶РёС‚Рµ РІ С„Р°Р№Р» README.md СЃРєСЂРёРЅС€РѕС‚ СЂР°Р·РґРµР»Р° Configuration > Hosts, РіРґРµ РІРёРґРЅРѕ, С‡С‚Рѕ Р°РіРµРЅС‚С‹ РїРѕРґРєР»СЋС‡РµРЅС‹ Рє СЃРµСЂРІРµСЂСѓ
+   2. РџСЂРёР»РѕР¶РёС‚Рµ РІ С„Р°Р№Р» README.md СЃРєСЂРёРЅС€РѕС‚ Р»РѕРіР° zabbix agent, РіРґРµ РІРёРґРЅРѕ, С‡С‚Рѕ РѕРЅ СЂР°Р±РѕС‚Р°РµС‚ СЃ СЃРµСЂРІРµСЂРѕРј
+   3. РџСЂРёР»РѕР¶РёС‚Рµ РІ С„Р°Р№Р» README.md СЃРєСЂРёРЅС€РѕС‚ СЂР°Р·РґРµР»Р° Monitoring > Latest data РґР»СЏ РѕР±РѕРёС… С…РѕСЃС‚РѕРІ, РіРґРµ РІРёРґРЅС‹ РїРѕСЃС‚СѓРїР°СЋС‰РёРµ РѕС‚ Р°РіРµРЅС‚РѕРІ РґР°РЅРЅС‹Рµ.
+   4. РџСЂРёР»РѕР¶РёС‚Рµ РІ С„Р°Р№Р» README.md С‚РµРєСЃС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅС‹С… РєРѕРјР°РЅРґ РІ GitHub
 
-### Решение 2
+### Р РµС€РµРЅРёРµ 2
 
-![14](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/14.png)
-![15](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/15.png)
-![16](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/16.png)
-![17](https://github.com/SerhioSamodurov/git_project_hw/blob/main/img/17.png)
+![14](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/14.png)
+![15](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/15.png)
+![16](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/16.png)
+![17](https://github.com/SerhioSamodurov/git_project_hw/blob/master/img/17.png)
 
