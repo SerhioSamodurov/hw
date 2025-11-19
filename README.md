@@ -101,9 +101,41 @@
    4. Приложите в файл README.md текст использованных команд в GitHub
 
 ### Решение 2
+Два сервера под управлением Debian 13
+Один хост на котором установлен Zabbix Server, вторая ВМ без сервера и агента первоначально
 
+2.1 Этап установка репозитория
+  На хосте на котором нет Zabbix Server
+   - wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
+   - dpkg -i zabbix-release_latest_7.0+debian13_all.deb
+   - apt update - после выполнения
 ![14](https://github.com/SerhioSamodurov/hw/blob/master/img/14.png)
+
+2.2 Установка агента на два хоста и запуск
+   - apt install zabbix-agent
+   - systemctl restart zabbix-agent
+   - systemctl enable zabbix-agent
+
 ![15](https://github.com/SerhioSamodurov/hw/blob/master/img/15.png)
+
+2.3 Добавление Zabbix Server в список разрешённых для агента на второй машине
 ![16](https://github.com/SerhioSamodurov/hw/blob/master/img/16.png)
+
+На Zabbix сервере остался адрес loopback 127.0.0.1
+
+
+2.4. Постановка серверов на мониторинг
+
 ![17](https://github.com/SerhioSamodurov/hw/blob/master/img/17.png)
 
+Судя по логам наши агенты взаимодействуют с хостом
+
+![18](https://github.com/SerhioSamodurov/hw/blob/master/img/18.png)
+
+На панели с графиками хосты появились
+
+![19](https://github.com/SerhioSamodurov/hw/blob/master/img/19.png)
+
+В Последних данных так же появились наши хосты
+
+![20](https://github.com/SerhioSamodurov/hw/blob/master/img/20.png)
