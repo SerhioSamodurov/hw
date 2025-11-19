@@ -132,6 +132,8 @@
 
 ![18](https://github.com/SerhioSamodurov/hw/blob/master/img/18.png)
 
+![18_1](https://github.com/SerhioSamodurov/hw/blob/master/img/18_1.png)
+
 На панели с графиками хосты появились
 
 ![19](https://github.com/SerhioSamodurov/hw/blob/master/img/19.png)
