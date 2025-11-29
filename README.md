@@ -1,4 +1,4 @@
-# Самодуров Сергей Михайлович Zabbix Ч.1
+# Самодуров Сергей Михайлович Zabbix Ч.2
 
 ## Задание 1
 
@@ -19,7 +19,7 @@
 
 ![1](https://github.com/SerhioSamodurov/hw/blob/master/img/1.png)
 
-1.2. Добавлены items на загрузку CPU, RAM (% cвободной памяти)
+1.2. Добавлены items на загрузку CPU, RAM 
 
 ![2](https://github.com/SerhioSamodurov/hw/blob/master/img/2.png)
 
