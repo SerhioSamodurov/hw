@@ -2,142 +2,101 @@
 
 ## Задание 1
 
-Установите Zabbix Server с веб-интерфейсом.
+Создайте свой шаблон, в котором будут элементы данных, отслеживающие загрузку ЦП и ОЗУ хоста.
 
 Процесс выполнения
-   1. Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.
-   2. Установите PostgreSQL. Для установки достаточна та версия, что есть в системном репозитороии Debian 11.
-   3. Пользуясь конфигуратором команд с официального сайта, составьте набор команд для установки последней версии Zabbix с поддержкой PostgreSQL и Apache.
-   4. Выполните все необходимые команды для установки Zabbix Server и Zabbix Web Server.
-Требования к результатам
-   1. Прикрепите в файл README.md скриншот авторизации в админке.
-   2. Приложите в файл README.md текст использованных команд в GitHub.
+  Выполняя ДЗ, сверяйтесь с процессом, описанным в записи лекции.
+  В веб-интерфейсе Zabbix Server в разделе «Шаблоны» создайте новый шаблон
+  Создайте элемент, который будет собирать информацию о загрузке ЦП в процентах
+  Создайте элемент, который будет собирать информацию о загрузке оперативной памяти в процентах
+
+Требования к результату
+  Прикрепите к файлу README.md скриншот страницы шаблона с названием «Задание 1»
 
 ### Решение 1
 
-Хост под управлением ОС Debian 13.
-На сайте zabbix сконфигурировал следующим образом
+1.1 Создан шаблон zabbix
 
 ![1](https://github.com/SerhioSamodurov/hw/blob/master/img/1.png)
 
-1.1 Установка PostgreSQL
-  - sudo apt install postgresql
-  - sudo systemctl status postgres
+1.2. Добавлены items на загрузку CPU, RAM (% cвободной памяти)
 
 ![2](https://github.com/SerhioSamodurov/hw/blob/master/img/2.png)
 
-1.2 Установка репозитория
-   - wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
-   - sudo dpkg -i zabbix-release_latest_7.0+debian13_all.deb
-   - cat /etc/apt/sources.list.d/zabbix.list
-   - sudo apt update 
+1.3 Шаблон прикреплён к узлу сети, во вкладке "Последние данные"  элементы инфу собирают
 
 ![3](https://github.com/SerhioSamodurov/hw/blob/master/img/3.png)
 
-1.3 Установка Zabbix (без агента) 
-  - sudo apt install zabbix-server-pgsql zabbix-frontend-php php8.4-pgsql zabbix-apache-conf zabbix-sql-scripts
-
-![4](https://github.com/SerhioSamodurov/hw/blob/master/img/4.png)
-  
-  Установлен, но пока не запускался
-
-1.4 Создание пользователя zabbix и БД
-  Взял команды из конфигуратора
-   - sudo -u postgres createuser --pwprompt zabbix
-   - sudo -u postgres createdb -O zabbix zabbix
-   - zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
-
-![5](https://github.com/SerhioSamodurov/hw/blob/master/img/5.png)  
-
-   Наша БД появилась 
-
-1.5 Добавление пароля в конфиг
-  - nano  /etc/zabbix/zabbix_server.conf 
-
-![6](https://github.com/SerhioSamodurov/hw/blob/master/img/6.png)
-
-1.6 Запуск и добавление в автозагрузку
-   - sudo systemctl restart zabbix-server apache2
-   - sudo systemctl enable zabbix-server apache2  
- 
-![7](https://github.com/SerhioSamodurov/hw/blob/master/img/7.png)
-![8](https://github.com/SerhioSamodurov/hw/blob/master/img/8.png)
-
-1.7 Web
- - Конфигуратор подключения к БД по IP адресу ВМ доступен
-  
-  ![9](https://github.com/SerhioSamodurov/hw/blob/master/img/9.png)
-
- - Все опции доступны
-
-  ![10](https://github.com/SerhioSamodurov/hw/blob/master/img/10.png)
-
- - в процессе сменил тему
-  ![11](https://github.com/SerhioSamodurov/hw/blob/master/img/11.png)
-
- - Окно с авторизацией появилось
-
-  ![12](https://github.com/SerhioSamodurov/hw/blob/master/img/12.png)
-
- - После авторизации вижу стандартный шаблон zabbix
-
-  ![13](https://github.com/SerhioSamodurov/hw/blob/master/img/13.png)
 
 ## Задание 2
 
-Установите Zabbix Agent на два хоста.
+Добавьте в Zabbix два хоста и присвойте им имена <фамилия и инициалы-1> и <фамилия и инициалы-2>. Например: ivanovii-1 и ivanovii-2.
 
 Процесс выполнения
-   1. Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.
-   2. Установите Zabbix Agent на 2 вирт.машины, одной из них может быть ваш Zabbix Server.
-   3. Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов.
-   4. Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera.
-   5. Проверьте, что в разделе Latest Data начали появляться данные с добавленных агентов.
+   Выполняя ДЗ сверяйтесь с процессом отражённым в записи лекции.
+   Установите Zabbix Agent на 2 виртмашины, одной из них может быть ваш Zabbix Server
+   Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов
+   Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera
+   Прикрепите за каждым хостом шаблон Linux by Zabbix Agent
+   Проверьте что в разделе Latest Data начали появляться данные с добавленных агентов
 
-Требования к результатам
-   1. Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу
-   2. Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
-   3. Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
-   4. Приложите в файл README.md текст использованных команд в GitHub
+Требования к результату
+   Результат выполнения этого задания сдайте вместе с заданием 3
 
 ### Решение 2
-Два сервера под управлением Debian 13
-Один хост на котором установлен Zabbix Server, вторая ВМ без сервера и агента первоначально
 
-2.1 Этап установка репозитория
-  На хосте на котором нет Zabbix Server
-   - wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
-   - dpkg -i zabbix-release_latest_7.0+debian13_all.deb
-   - apt update - после выполнения
-![14](https://github.com/SerhioSamodurov/hw/blob/master/img/14.png)
+1.1 Установлен zabbix agent на серверы reserve-server и quorum-server (скрины putty слева и справа соответственно)
 
-2.2 Установка агента на два хоста и запуск
-   - apt install zabbix-agent
-   - systemctl restart zabbix-agent
-   - systemctl enable zabbix-agent
+![4](https://github.com/SerhioSamodurov/hw/blob/master/img/4.png)
 
-![15](https://github.com/SerhioSamodurov/hw/blob/master/img/15.png)
+1.2 Добавлен ip zabbix server в список разрешённых хостов на оба сервера(reserve и quorum)
 
-2.3 Добавление Zabbix Server в список разрешённых для агента на второй машине
-![16](https://github.com/SerhioSamodurov/hw/blob/master/img/16.png)
+![5](https://github.com/SerhioSamodurov/hw/blob/master/img/5.png)
 
-На Zabbix сервере остался адрес loopback 127.0.0.1
+1.3 Агенты доступны, данные получаем успешно
 
+![6](https://github.com/SerhioSamodurov/hw/blob/master/img/6.png)
 
-2.4. Постановка серверов на мониторинг
+![7](https://github.com/SerhioSamodurov/hw/blob/master/img/7.png)
 
-![17](https://github.com/SerhioSamodurov/hw/blob/master/img/17.png)
+## Задание 3
 
-Судя по логам наши агенты взаимодействуют с хостом
+Привяжите созданный шаблон к двум хостам. Также привяжите к обоим хостам шаблон Linux от Zabbix Agent.
 
-![18](https://github.com/SerhioSamodurov/hw/blob/master/img/18.png)
+Процесс выполнения
+   Выполняя ДЗ, сверяйтесь с процессом, описанным в записи лекции.
+   Зайдите в настройки каждого хоста и в разделе «Шаблоны» прикрепите к этому хосту свой шаблон
+   Также привяжите к каждому хосту шаблон Linux by Zabbix Agent
+    Убедитесь, что в раздел «Последние данные» начали поступать необходимые данные из вашего шаблона
 
-![18_1](https://github.com/SerhioSamodurov/hw/blob/master/img/18_1.png)
+Требования к результату
+   Прикрепите к файлу README.md скриншот страницы хостов, на котором будут видны привязки шаблонов с названиями «Задание 2-3». Хосты должны быть подключены
 
-На панели с графиками хосты появились
+### Решение 3
 
-![19](https://github.com/SerhioSamodurov/hw/blob/master/img/19.png)
+3.1 Шаблоны добавлены к хостам
 
-В Последних данных так же появились наши хосты
+![8](https://github.com/SerhioSamodurov/hw/blob/master/img/8.png)
 
-![20](https://github.com/SerhioSamodurov/hw/blob/master/img/20.png)
+3.2 Данные получаем
+
+![9](https://github.com/SerhioSamodurov/hw/blob/master/img/9.png)
+
+## Задание 4
+
+Создайте свой собственный дашборд.
+
+Процесс выполнения
+   Выполняя ДЗ, сверяйтесь с процессом, описанным в записи лекции.
+   В разделе «Дашборды» создайте новый дашборд
+   Разместите на нём несколько графиков по вашему усмотрению.
+
+Требования к результату
+ Прикрепите к файлу README.md скриншот дашборда с названием «Задание 4»
+
+### Решение 4
+
+4.1 Создана кастомная панель
+
+![10](https://github.com/SerhioSamodurov/hw/blob/master/img/10.png)
+
